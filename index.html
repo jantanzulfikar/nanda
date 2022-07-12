@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css">
     <link rel="stylesheet" href="assets/css/Simple-Slider.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="assets/css/coment-box.css">
     <style>
         .mySlides {display:none}
         .w3-left, .w3-right, .w3-badge {cursor:pointer}
@@ -50,7 +51,8 @@
             <div class="row">
                 <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
                     <h1>Get ready.</h1>
-                    <p>iPhone 14 will be released next year </p><button class="btn btn-light btn-lg action-button" type="button">Start&nbsp;discussion</button>
+                    <p>iPhone 14 will be released next year </p>
+                    <button class="btn btn-light btn-lg action-button" type="button"><a href="index.html#app"> Start discussion  </a></button>
                 </div>
                 <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
                     <div class="phone-mockup"><img class="device" src="assets/img/img5.png">
@@ -62,14 +64,12 @@
         
       
         <div class="container hero" style="margin-top: 280px;">                        
-          <div class="w3-content w3-display-container" style="max-width:500px">
-            
+          <div class="w3-content w3-display-container" style="max-width:500px">            
             <div class="row">
               <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
                  <h1>Chosee Your Color</h1>
               </div>
             </div>
-
             <img class="mySlides" src="assets/img/img1.png">
             <img class="mySlides" src="assets/img/img3.png">
             <img class="mySlides" src="assets/img/img1.png">
@@ -83,10 +83,13 @@
          </div>
         </div>
 
-
-
-        <section id="app">
-          <div class="container">
+        <section id="app" style="padding-top: 100px;">
+          <div class="row">
+             <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+                 <h1>discussion Box</h1>
+             </div>
+           </div>
+          <div class="container-comment">
             <div class="row">
               <div class="col-6">
                 <div class="comment">
@@ -111,6 +114,8 @@
     <script src="assets/js/Lightbox-Gallery.js"></script>
     <script src="assets/js/Simple-Slider.js"></script>
     <script src="assets/js/slider.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script>
          var slideIndex = 1;
     showDivs(slideIndex);
@@ -143,11 +148,11 @@
     $(document).ready(function(){ 
     $(".primaryContained").on('click', function(){
     $(".comment").addClass("commentClicked");
-    });//end click
+    });
     $("textarea").on('keyup.enter', function(){
     $(".comment").addClass("commentClicked");
-    });//end keyup
-    });//End Function
+    });
+    });
 
     new Vue({
     el: "#app",
@@ -165,8 +170,7 @@
     });
 
     </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
 </body>
 
 </html>
