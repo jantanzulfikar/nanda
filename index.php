@@ -1,6 +1,9 @@
 <?php
   session_start(); 
-  $test = $_SESSION["username"];
+  $test = null;
+  if (!empty($_SESSION["username"])) {
+    $test = $_SESSION["username"];
+  }
 ?>
 
 
@@ -41,7 +44,8 @@
             <div class="container-fluid"><a class="navbar-brand" href="#">GadgetIn</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">galery</a></li>
                         <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Dropdown </a>
                             <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
                         </li>
