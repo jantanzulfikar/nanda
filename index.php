@@ -1,3 +1,10 @@
+<?php
+  session_start(); 
+  $test = $_SESSION["username"];
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +35,7 @@
     
 </head>
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="56">
+<body id="page-top" data-bs-target="#mainNav" data-bs-offset="56">
     <header class="header-blue">
         <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
             <div class="container-fluid"><a class="navbar-brand" href="#">GadgetIn</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -42,8 +49,13 @@
                     <!-- pengaturan nav bar login dikanan         -->
                     <form class="d-flex me-auto navbar-form" target="_self">                
                     </form>
-                    <span class="navbar-text"> <a class="login" href="#">Log In</a></span><a class="btn btn-light action-button" role="button" href="#">Sign Up</a>
-                    <!-- pengaturan nav bar login dikanan         -->
+                      <?php
+                        if(is_null($test)){
+                        echo("<span class='navbar-text'> <a class='login' href='login.php'>Log In</a></span><a class='btn btn-light action-button' role='button' href='registration.php'>Sign Up</a>");
+                        } else {
+                          echo $test .' , <a class="login" href="index.php" onclick="logout()">logout</a>';
+                        }
+                      ?>
                 </div>
             </div>
         </nav>
@@ -52,7 +64,7 @@
                 <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
                     <h1>Get ready.</h1>
                     <p>iPhone 14 will be released next year </p>
-                    <button class="btn btn-light btn-lg action-button" type="button"><a href="index.html#app"> Start discussion  </a></button>
+                    <button class="btn btn-light btn-lg action-button" type="button" href="index.html#app">Start discussion</button>
                 </div>
                 <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
                     <div class="phone-mockup"><img class="device" src="assets/img/img5.png">
@@ -66,9 +78,7 @@
         <div class="container hero" style="margin-top: 280px;">                        
           <div class="w3-content w3-display-container" style="max-width:500px">            
             <div class="row">
-              <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
                  <h1>Chosee Your Color</h1>
-              </div>
             </div>
             <img class="mySlides" src="assets/img/img1.png">
             <img class="mySlides" src="assets/img/img3.png">
@@ -84,10 +94,8 @@
         </div>
 
         <section id="app" style="padding-top: 100px;">
-          <div class="row">
-             <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
-                 <h1>discussion Box</h1>
-             </div>
+            <div class="container hero">
+                <h1>discussion Box</h1>             
            </div>
           <div class="container-comment">
             <div class="row">
@@ -144,6 +152,13 @@
       dots[slideIndex-1].className += " w3-white";
     }
 
+    function logout() {
+      console.log("hay");
+      session_start();
+      session_destroy();
+      header("refresh: 3;");
+    
+    }
 
     $(document).ready(function(){ 
     $(".primaryContained").on('click', function(){
